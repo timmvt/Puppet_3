@@ -34,6 +34,7 @@ class nginx {
     require => Package['nginx'],
   }
 
+  # from the exercise at the end of Chapter 3
   file { '/var/www/cat-directory-made-by-puppet':
     ensure => 'directory',
     owner => 'root',
