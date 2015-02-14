@@ -45,9 +45,13 @@ class nginx {
     content => "This file was made by and is managed by puppet",
   }
 
+  # Creates/adds the index.html page
+
   file { '/var/www/cat-pictures/index.html':
     content => "# This file is managed by Puppet. Any changes will result in its loss\n\nI can haz cat pictures.\n\nI just added this line on Feb 13, 2015 at 1355\nand now at 1357\nand again at 1358\n",    
   }
+  
+  # Part of the original file
 
   file { '/etc/nginx/sites-enabled/default':
     source => 'puppet:///modules/nginx/cat-pictures.conf',
