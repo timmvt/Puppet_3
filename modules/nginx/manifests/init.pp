@@ -29,7 +29,7 @@ class nginx {
   service { 'nginx':
     ensure => running,
     # Added the next line on 2/12/2015 at 1527 from page 56
-    ensure => true,
+    # ensure => true,
     # nothing further in this addition
     require => Package['nginx'],
   }

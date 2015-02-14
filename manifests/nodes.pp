@@ -14,3 +14,8 @@ node 'puppetDemo' {
   include nginx
 }
 
+node 'puppetDemo2' {
+  
+  # PAGE 65
+  include nginx
+}
