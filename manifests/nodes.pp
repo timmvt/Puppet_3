@@ -1,6 +1,7 @@
 # This file is managed by Puppet. Any manual changes will be lost.
 
 # nodes.pp file
+# this is a demonstration of refactoring
 
 node 'puppetDemo' {
 
