@@ -1,0 +1,13 @@
+# use the following code without the # sign - FROM PAGE 78
+
+# ubuntu@demo:~/puppet$ ssh-keygen -f fabian
+
+#SYSTEM MESSAGE:
+#Generating public/private rsa key pair.
+#Enter passphrase (empty for no passphrase):
+#Enter same passphrase again:
+#Your identification has been save in fabian.
+#Your public key has been saved in fabian.pub
+
+
+
