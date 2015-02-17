@@ -5,10 +5,19 @@
 
 
 node 'puppetDemo' {
+  # Declares user
   user { 'art':
+  
+    # Ensures user is present
     ensure     => present,
+
+    # Specifics about user
     comment    => 'Art Vandalay',
+
+    # Sets the path to user's home directory
     home       => '/home/art',
+
+    # Home directory not created without the following line
     managehome => true,
 
 # PAGE 74
