@@ -1,0 +1,21 @@
+# Under manifests/nodes.pp, remove the # signs from the code below or change to reflect the following:
+
+# NOTE: The key entry is left blank instead of being complete with the ssh-keygen value
+
+# ssh_authorized_key { 'art_ssh':
+#  user => 'art',
+#  type => 'rsa',
+#  key  => '',
+#}
+
+# FROM THE BOOK:
+# The value for key in the example above is an empty string-quoted string(''). This will disable SSH logins for the user. If you have enabled password authentication (which I don't recommend, but you might need it in some situations) then this won't stop the user from logging in using his password. To do this, set as password of a single star (*) in Puppet:
+
+# user { 'art':
+#   ensure      => present,
+#   comment     => 'Art Vandalay',
+#   home        => '/home/art',
+#   managehome  => true,
+#   password    => '*',
+}
+
