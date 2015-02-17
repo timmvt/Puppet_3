@@ -1,0 +1,10 @@
+# Under manifests/nodes.pp, remove the # signs from the code below or change to reflect the following:
+
+# NOTE: The key entry is left blank instead of being complete with the ssh-keygen value
+
+# ssh_authorized_key { 'art_ssh':
+#  user => 'art',
+#  type => 'rsa',
+#  key  => '',
+#}
+
