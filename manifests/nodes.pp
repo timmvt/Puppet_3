@@ -83,6 +83,12 @@ node 'puppetDemo' {
     minute  => '00',
   }
 
+# CHAPTER 6 EXERCISE
 
+  cron { 'run pull-updates from Git':
+    command => '/usr/bin/rsync -az /usr/local/bin/pull-updates',
+    hour    => '*',
+    minute  => '5',
+  }
 
 }
