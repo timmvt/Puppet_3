@@ -1,0 +1,10 @@
+# This file is managed by Puppet. Any manual changes will be lost.
+
+# PAGE 90 - Triggering Commands
+
+exec { 'icinga-config-check':
+  command     => '/usr/sbin/icinga -v /etc/icinga/icinga.cfg && /usr/sbin/service icinga restart',
+  refreshonly => true,
+  subscribe   => File['/etc/icinga/icinga.cfg'],
+}
+
