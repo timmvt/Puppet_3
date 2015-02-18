@@ -57,4 +57,8 @@ node 'puppetDemo' {
 # PAGE 80 - step 4
   include ssh
 
+# PAGE 82 - step 6
+  include sudoers
+
+
 }
