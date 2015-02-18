@@ -1,0 +1,14 @@
+{
+  "name": "examplecorp-mymodule",
+  "version": "0.1.0",
+  "author": "Timm",
+  "summary": "Sample module making with Puppet",
+  "license": "Apache 2.0",
+  "source": "https://github.com/timmvt/examplecorp-mymodule",
+  "project_page": "https://github.com/timmvt/examplecorp-mymodule",
+  "issues_url": "https://github.com/timmvt/examplecorp-mymodule/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ]
+}
+
