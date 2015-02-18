@@ -10,4 +10,9 @@ exec { 'Download public key for John':
   creates   => '/tmp/john.pub',
 }
 
+exec { 'add-cloudera-apt-key':
+  command   => '/usr/bin/apt-key add /tmp/cloudera.pub',
+  unless    => '/usr/bin/apt-key list |grep Cloudera',
+}
+
 
