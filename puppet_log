@@ -8,6 +8,14 @@
 
 # 2015-02-18 10:31 -> page 88 completed
 
+
+# LOGGING INTO VAGRANT MACHINE
+# navigate to the folder 'vagrant_puppet_demo_server' under 'puppet_3'
+# type 'vagrant up' and wait for boot
+# type 'vagrant ssh' to use the vagrant machine on the command line
+
+
+
 # 2015-02-18 12:38 -> troubleshooting /usr/local/bin/papply
 # The new code (below) freezes the command line
 #
