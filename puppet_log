@@ -27,14 +27,28 @@
     #sudo puppet apply /home/timm/Documents/puppet_3/manifests/site.pp --modulepath=/home/timm/Documents/puppet_3/modules $*
 
 # 2015-02-18 14:55 -> investigating why papply does not work properly; every time 'papply' is run, only the following messages are generated (disregard the number of seconds as they change each time the 'papply' command is executed)
-  # Notice: Compiled catalog for puppetdemo.belkin in environment production in 0.08 seconds
-  # Notice: Finished catalog run in 0.09 seconds
+    # Notice: Compiled catalog for puppetdemo.belkin in environment production in 0.08 seconds
+    # Notice: Finished catalog run in 0.09 seconds
   #
   # I am expecting to see the following when working on the cat-pictures directory files
-  # Notice: /Stage[main]//Node[demo]/File[/var/www/cat-pictures]/ensure: created
-  # Notice: /Stage[main]//Node[demo]/File[/var/www/cat-pictures/img]/ensure: created
-  # Notice: /File[/var/www/cat-pictures/img/cat_002.jpg]/ensure: created
-  # Notice: /File[/var/www/cat-pictures/img/cat_001.jpg]/ensure: created
-  # Notice: /File[/var/www/cat-pictures/img/cat_003.jpg]/ensure: created
-  # Notice: Finished catalog run in 0.08 seconds
+    # Notice: /Stage[main]//Node[demo]/File[/var/www/cat-pictures]/ensure: created
+    # Notice: /Stage[main]//Node[demo]/File[/var/www/cat-pictures/img]/ensure: created
+    # Notice: /File[/var/www/cat-pictures/img/cat_002.jpg]/ensure: created
+    # Notice: /File[/var/www/cat-pictures/img/cat_001.jpg]/ensure: created
+    # Notice: /File[/var/www/cat-pictures/img/cat_003.jpg]/ensure: created
+    # Notice: Finished catalog run in 0.08 seconds
+  #
+  # when I run the command 'puppet apply manifests/site.pp', I receive the following messages:
+    # timm@puppetDemo:~/Documents/puppet_3$ puppet apply manifests/site.pp 
+    # Warning: The use of 'import' is deprecated at /home/timm/Documents/puppet_3/manifests/site.pp:11. See http://links.puppetlabs.com/puppet-import-deprecation (at /usr/lib/ruby/vendor_ruby/puppet/parser/parser_support.rb:110:in `import')
+    # Notice: Compiled catalog for puppetdemo.belkin in environment production in 0.08 seconds
+    # Error: /Stage[main]/Main/Node[puppetdemo]/File[/var/www/cat-pictures/img]: Could not evaluate: Could not retrieve information from environment production source(s) puppet:///modules/cat-pictures/img
+    # Notice: /Stage[main]/Main/Node[puppetdemo]/File[/var/www/cat-pictures/img/img_002.jpg]: Dependency File[/var/www/cat-pictures/img] has failures: true
+    # Warning: /Stage[main]/Main/Node[puppetdemo]/File[/var/www/cat-pictures/img/img_002.jpg]: Skipping because of failed dependencies
+    #Notice: /Stage[main]/Main/Node[puppetdemo]/File[/var/www/cat-pictures/img/img_004.jpg]: Dependency File[/var/www/cat-pictures/img] has failures: true
+    # Warning: /Stage[main]/Main/Node[puppetdemo]/File[/var/www/cat-pictures/img/img_004.jpg]: Skipping because of failed dependencies
+    # Notice: /Stage[main]/Main/Node[puppetdemo]/File[/var/www/cat-pictures/img/img_001.jpg]: Dependency File[/var/www/cat-pictures/img] has failures: true
+    # Warning: /Stage[main]/Main/Node[puppetdemo]/File[/var/www/cat-pictures/img/img_001.jpg]: Skipping because of failed dependencies
+    # Notice: /Stage[main]/Main/Node[puppetdemo]/File[/var/www/cat-pictures/img/img_003.jpg]: Dependency File[/var/www/cat-pictures/img] has failures: true
+    # Warning: /Stage[main]/Main/Node[puppetdemo]/File[/var/www/cat-pictures/img/img_003.jpg]: Skipping because of failed dependencies
 
