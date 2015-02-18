@@ -1,3 +1,9 @@
 # 2015-02-17 13:45 - renamed chapter_02 and chapter_03 to Chapter_02 and Chapter_03 with the commit message 'A file was deleted'
 
 # on Chapter 5 - page 80: have added ssh access to select users and updated nodes.pp to include ssh
+
+# 2015-02-18 09:53 -> completed page 81 and pushed to git
+
+# 2015-02-18 09:58 -> page 82 added 'include sudoers' 
+
+# 2015-02-18 10:31 -> page 88 completed
