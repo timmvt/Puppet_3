@@ -1,0 +1,11 @@
+# This file is managed by Puppet. Any manual changes will be lost.
+
+# Chapter 5 - page 81
+
+# User privilege specification
+
+root    ALL = (ALL) ALL
+timm    ALL = (ALL) NOPASSWD:ALL
+git     ALL = (ALL) NOPASSWD: /bin/ls
+art     ALL = (ALL) NOPASSWD: /bin/ls
+
