@@ -8,23 +8,33 @@
 
 # 2015-02-18 10:31 -> page 88 completed
 
-
-# LOGGING INTO VAGRANT MACHINE
-# navigate to the folder 'vagrant_puppet_demo_server' under 'puppet_3'
-# type 'vagrant up' and wait for boot
-# cd 'puppet_3_VM.git'
-# type 'vagrant ssh' to use the vagrant machine on the command line
-
-
+# 2015-02-18 12:51
+  # LOGGING INTO VAGRANT MACHINE
+  # navigate to the folder 'vagrant_puppet_demo_server' under 'puppet_3'
+  # type 'vagrant up' and wait for boot
+  # cd 'puppet_3_VM.git'
+  # type 'vagrant ssh' to use the vagrant machine on the command line
 
 # 2015-02-18 12:38 -> troubleshooting /usr/local/bin/papply
-# The new code (below) freezes the command line
-#
-# #!/bin/sh
-#PUPPETDIR=/home/timm/Documents/puppet_3
-#/usr/bin/puppet apply --modulepath ${PUPPETDIR}/modules
-#${PUPPETDIR}/manifests/site.pp
+  # The new code (below) freezes the command line
+    #
+    # #!/bin/sh
+    #PUPPETDIR=/home/timm/Documents/puppet_3
+    #/usr/bin/puppet apply --modulepath ${PUPPETDIR}/modules
+    #${PUPPETDIR}/manifests/site.pp
 
-# The original code (below) does work
-#sudo puppet apply /home/timm/Documents/puppet_3/manifests/site.pp --modulepath=/home/timm/Documents/puppet_3/modules $*
+  # The original code (below) does work
+    #sudo puppet apply /home/timm/Documents/puppet_3/manifests/site.pp --modulepath=/home/timm/Documents/puppet_3/modules $*
+
+# 2015-02-18 14:55 -> investigating why papply does not work properly; every time 'papply' is run, only the following messages are generated (disregard the number of seconds as they change each time the 'papply' command is executed)
+  # Notice: Compiled catalog for puppetdemo.belkin in environment production in 0.08 seconds
+  # Notice: Finished catalog run in 0.09 seconds
+  #
+  # I am expecting to see the following when working on the cat-pictures directory files
+  # Notice: /Stage[main]//Node[demo]/File[/var/www/cat-pictures]/ensure: created
+  # Notice: /Stage[main]//Node[demo]/File[/var/www/cat-pictures/img]/ensure: created
+  # Notice: /File[/var/www/cat-pictures/img/cat_002.jpg]/ensure: created
+  # Notice: /File[/var/www/cat-pictures/img/cat_001.jpg]/ensure: created
+  # Notice: /File[/var/www/cat-pictures/img/cat_003.jpg]/ensure: created
+  # Notice: Finished catalog run in 0.08 seconds
 
