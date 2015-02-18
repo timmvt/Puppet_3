@@ -7,3 +7,15 @@
 # 2015-02-18 09:58 -> page 82 added 'include sudoers' 
 
 # 2015-02-18 10:31 -> page 88 completed
+
+# 2015-02-18 12:38 -> troubleshooting /usr/local/bin/papply
+# The new code (below) freezes the command line
+#
+# #!/bin/sh
+#PUPPETDIR=/home/timm/Documents/puppet_3
+#/usr/bin/puppet apply --modulepath ${PUPPETDIR}/modules
+#${PUPPETDIR}/manifests/site.pp
+
+# The original code (below) does work
+#sudo puppet apply /home/timm/Documents/puppet_3/manifests/site.pp --modulepath=/home/timm/Documents/puppet_3/modules $*
+
