@@ -1,0 +1,9 @@
+# This file is managed by Puppet. Any manual changes will be lost.
+
+# PAGE 91 - Command Search Paths
+
+exec { 'Run my arbitrary command':
+  command => 'echo I ran this command on `date` >/tmp/command.output.txt',
+  path    => ['/bin', '/usr/bin'],
+}
+
