@@ -12,6 +12,7 @@
 # LOGGING INTO VAGRANT MACHINE
 # navigate to the folder 'vagrant_puppet_demo_server' under 'puppet_3'
 # type 'vagrant up' and wait for boot
+# cd 'puppet_3_VM.git'
 # type 'vagrant ssh' to use the vagrant machine on the command line
 
 
