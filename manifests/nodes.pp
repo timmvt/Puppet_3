@@ -54,4 +54,7 @@ node 'puppetDemo' {
 #  include nginx
 #  }
 
+# PAGE 80 - step 4
+  include ssh
+
 }
