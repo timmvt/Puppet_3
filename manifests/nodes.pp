@@ -62,15 +62,24 @@ node 'puppetDemo' {
 #  }
 
 # PAGE 80 - step 4
-  include ssh
+#  include ssh
 
 # PAGE 82 - step 6
-  include sudoers
+#  include sudoers
 
 # PAGE 92 Scheduling a backup
-  cron { 'Back up cat-pictures':
+  # Next line declares a cron resource named 'cat-pictures-backup'
+  cron { 'Back up cat-pictures': 
+
+    # Next lines sets the command to run...rsync command to back up all files and directories under /var/www/cat-pictures to /cat-pictures-backup...As with 'exec' resources, commands need to be qualified with their full path
     command => '/usr/bin/rsync -az /var/www/cat-pictures/ /cat-pictures-backup/',
+    # Next line designates the hour the job is run
     hour    => '04',
+
+    # Next line designates the minute the job is run. IF THE MINUTE IS NOT SPECIFIED, IT DEFAULTS TO '*'; THAT IS, IT RUNS EVERY MINUTE. 
+    # 
+    # ALWAYS SPECIFY THE MINUTE!
+    #
     minute  => '00',
   }
 
