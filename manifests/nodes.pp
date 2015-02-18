@@ -87,11 +87,9 @@ node 'puppetDemo' {
 }
 
 
-# PAGE 55
+# PAGE 65
 node 'puppetDemo2' {
-
-# PAGE 39 - This is a demonstration of refactoring
-    include nginx
-   }
+  include nginx
+}
 
   
