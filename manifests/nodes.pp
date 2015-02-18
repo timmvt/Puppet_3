@@ -5,21 +5,23 @@
 
 node 'puppetDemo' {
 # PAGE 34
-  package { 'nginx':
-    ensure => installed,
-  }
+#  package { 'nginx':
+#    ensure => installed,
+#  }
 
+# PAGE 38
+  include nginx
 
 # PAGE 95
-  file { '/var/www/cat-pictures':
-    ensure => directory,
-  }
+#  file { '/var/www/cat-pictures':
+#    ensure => directory,
+#  }
 
-  file { '/var/www/cat-pictures/img':
-    source => 'puppet:///modules/cat-pictures/img',
-    recurse => true,
-    require => File['/var/www/cat-pictures'],
-  }
+#  file { '/var/www/cat-pictures/img':
+#    source => 'puppet:///modules/cat-pictures/img',
+#    recurse => true,
+#    require => File['/var/www/cat-pictures'],
+#  }
 
 # PAGE 94
    #CHAPTER 6 EXERCISE
@@ -49,10 +51,10 @@ node 'puppetDemo' {
   #  }
 
 # PAGE 82 - step 6
-   #  include sudoers
+  include sudoers
 
 # PAGE 80 - step 4
-   #  include ssh
+#  include ssh
 
 # PAGE 77
   #  ssh_authorized_key { 'art_ssh':
@@ -76,6 +78,12 @@ node 'puppetDemo' {
 # PAGE 65 - Yet another refactoring demonstration
   #  include nginx
   #  }
+
+# PAGE 30
+  file { '/tmp/hello':
+    content => "Hello, world\n",
+  }
+
 }
 
 

@@ -4,9 +4,10 @@
 
 import 'nodes.pp'
 
-file { '/tmp/hello':
-  content => "Hello, world\n",
-}
+# PAGE 26
+#file { '/tmp/hello':
+#  content => "Hello, world\n",
+#}
 
 #TT ADDED AS A TEST 2015-02-18 12:28 to replace the import statement
 
