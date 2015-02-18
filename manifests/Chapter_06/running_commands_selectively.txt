@@ -1,0 +1,13 @@
+# This file is managed by Puppet. Any manual changes will be lost.
+
+# File created 2015-02-18 10:28
+
+# PAGE 89 - Running Commands Selectively
+
+exec { 'Download public key for John':
+  cwd       => '/tmp',
+  command   => '/usr/bin/wget http://bitfieldconsulting.com/files/john.pub',
+  creates   => '/tmp/john.pub',
+}
+
+
