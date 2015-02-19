@@ -5,6 +5,9 @@
 
 node 'puppetDemo' {
 
+# From Puppet 3 Cookbook 
+  include puppet
+
 # PAGE 34
 #  package { 'nginx':
 #    ensure => installed,
