@@ -1,66 +1,175 @@
-# 2015-02-17 13:45 - renamed chapter_02 and chapter_03 to Chapter_02 and Chapter_03 with the commit message 'A file was deleted'
+2015-02-17 13:45 - renamed chapter_02 and chapter_03 to Chapter_02 and Chapter_03 with the commit message 'A file was deleted'
 
 # on Chapter 5 - page 80: have added ssh access to select users and updated nodes.pp to include ssh
 
-# 2015-02-18 09:53 -> completed page 81 and pushed to git
+2015-02-18 09:53 -> completed page 81 and pushed to git
 
-# 2015-02-18 09:58 -> page 82 added 'include sudoers' 
+2015-02-18 09:58 -> page 82 added 'include sudoers' 
 
-# 2015-02-18 10:31 -> page 88 completed
+2015-02-18 10:31 -> page 88 completed
 
-# 2015-02-18 12:51
-  # LOGGING INTO VAGRANT MACHINE
-  # navigate to the folder 'vagrant_puppet_demo_server' under 'puppet_3'
-  # type 'vagrant up' and wait for boot
-  # cd 'puppet_3_VM.git'
-  # type 'vagrant ssh' to use the vagrant machine on the command line
+2015-02-18 12:51
+# LOGGING INTO VAGRANT MACHINE
+# navigate to the folder 'vagrant_puppet_demo_server' under 'puppet_3'
+# type 'vagrant up' and wait for boot
+# cd 'puppet_3_VM.git'
+# type 'vagrant ssh' to use the vagrant machine on the command line
 
-# 2015-02-18 12:38 -> troubleshooting /usr/local/bin/papply
-  # The new code (below) freezes the command line
-    #
-    # #!/bin/sh
-    #PUPPETDIR=/home/timm/Documents/puppet_3
-    #/usr/bin/puppet apply --modulepath ${PUPPETDIR}/modules
-    #${PUPPETDIR}/manifests/site.pp
+2015-02-18 12:38 -> troubleshooting /usr/local/bin/papply
+# The new code (below) freezes the command line
+#
+# #!/bin/sh
+#PUPPETDIR=/home/timm/Documents/puppet_3
+#/usr/bin/puppet apply --modulepath ${PUPPETDIR}/modules
+#${PUPPETDIR}/manifests/site.pp
+#
+# The original code (below) does work
+#sudo puppet apply /home/timm/Documents/puppet_3/manifests/site.pp --modulepath=/home/timm/Documents/puppet_3/modules $*
 
-  # The original code (below) does work
-    #sudo puppet apply /home/timm/Documents/puppet_3/manifests/site.pp --modulepath=/home/timm/Documents/puppet_3/modules $*
+2015-02-18 14:55 -> investigating why papply does not work properly; every time 'papply' is run, only the following messages are generated (disregard the number of seconds as they change each time the 'papply' command is executed)
+# Notice: Compiled catalog for puppetdemo.belkin in environment production in 0.08 seconds
+# Notice: Finished catalog run in 0.09 seconds
+#
+# I am expecting to see the following when working on the cat-pictures directory files
+# Notice: /Stage[main]//Node[demo]/File[/var/www/cat-pictures]/ensure: created
+# Notice: /Stage[main]//Node[demo]/File[/var/www/cat-pictures/img]/ensure: created
+# Notice: /File[/var/www/cat-pictures/img/cat_002.jpg]/ensure: created
+# Notice: /File[/var/www/cat-pictures/img/cat_001.jpg]/ensure: created
+# Notice: /File[/var/www/cat-pictures/img/cat_003.jpg]/ensure: created
+# Notice: Finished catalog run in 0.08 seconds
+#
+When I run the command 'puppet apply manifests/site.pp', I receive the following messages:
+# timm@puppetDemo:~/Documents/puppet_3$ puppet apply manifests/site.pp 
+# Warning: The use of 'import' is deprecated at /home/timm/Documents/puppet_3/manifests/site.pp:11. See http://links.puppetlabs.com/puppet-import-deprecation (at /usr/lib/ruby/vendor_ruby/puppet/parser/parser_support.rb:110:in `import')
+# Notice: Compiled catalog for puppetdemo.belkin in environment production in 0.08 seconds
+# Error: /Stage[main]/Main/Node[puppetdemo]/File[/var/www/cat-pictures/img]: Could not evaluate: Could not retrieve information from environment production source(s) puppet:///modules/cat-pictures/img
+# Notice: /Stage[main]/Main/Node[puppetdemo]/File[/var/www/cat-pictures/img/img_002.jpg]: Dependency File[/var/www/cat-pictures/img] has failures: true
+# Warning: /Stage[main]/Main/Node[puppetdemo]/File[/var/www/cat-pictures/img/img_002.jpg]: Skipping because of failed dependencies
+#Notice: /Stage[main]/Main/Node[puppetdemo]/File[/var/www/cat-pictures/img/img_004.jpg]: Dependency File[/var/www/cat-pictures/img] has failures: true
+# Warning: /Stage[main]/Main/Node[puppetdemo]/File[/var/www/cat-pictures/img/img_004.jpg]: Skipping because of failed dependencies
+# Notice: /Stage[main]/Main/Node[puppetdemo]/File[/var/www/cat-pictures/img/img_001.jpg]: Dependency File[/var/www/cat-pictures/img] has failures: true
+# Warning: /Stage[main]/Main/Node[puppetdemo]/File[/var/www/cat-pictures/img/img_001.jpg]: Skipping because of failed dependencies
+# Notice: /Stage[main]/Main/Node[puppetdemo]/File[/var/www/cat-pictures/img/img_003.jpg]: Dependency File[/var/www/cat-pictures/img] has failures: true
+# Warning: /Stage[main]/Main/Node[puppetdemo]/File[/var/www/cat-pictures/img/img_003.jpg]: Skipping because of failed dependencies
 
-# 2015-02-18 14:55 -> investigating why papply does not work properly; every time 'papply' is run, only the following messages are generated (disregard the number of seconds as they change each time the 'papply' command is executed)
-    # Notice: Compiled catalog for puppetdemo.belkin in environment production in 0.08 seconds
-    # Notice: Finished catalog run in 0.09 seconds
-  #
-  # I am expecting to see the following when working on the cat-pictures directory files
-    # Notice: /Stage[main]//Node[demo]/File[/var/www/cat-pictures]/ensure: created
-    # Notice: /Stage[main]//Node[demo]/File[/var/www/cat-pictures/img]/ensure: created
-    # Notice: /File[/var/www/cat-pictures/img/cat_002.jpg]/ensure: created
-    # Notice: /File[/var/www/cat-pictures/img/cat_001.jpg]/ensure: created
-    # Notice: /File[/var/www/cat-pictures/img/cat_003.jpg]/ensure: created
-    # Notice: Finished catalog run in 0.08 seconds
-  #
-  # when I run the command 'puppet apply manifests/site.pp', I receive the following messages:
-    # timm@puppetDemo:~/Documents/puppet_3$ puppet apply manifests/site.pp 
-    # Warning: The use of 'import' is deprecated at /home/timm/Documents/puppet_3/manifests/site.pp:11. See http://links.puppetlabs.com/puppet-import-deprecation (at /usr/lib/ruby/vendor_ruby/puppet/parser/parser_support.rb:110:in `import')
-    # Notice: Compiled catalog for puppetdemo.belkin in environment production in 0.08 seconds
-    # Error: /Stage[main]/Main/Node[puppetdemo]/File[/var/www/cat-pictures/img]: Could not evaluate: Could not retrieve information from environment production source(s) puppet:///modules/cat-pictures/img
-    # Notice: /Stage[main]/Main/Node[puppetdemo]/File[/var/www/cat-pictures/img/img_002.jpg]: Dependency File[/var/www/cat-pictures/img] has failures: true
-    # Warning: /Stage[main]/Main/Node[puppetdemo]/File[/var/www/cat-pictures/img/img_002.jpg]: Skipping because of failed dependencies
-    #Notice: /Stage[main]/Main/Node[puppetdemo]/File[/var/www/cat-pictures/img/img_004.jpg]: Dependency File[/var/www/cat-pictures/img] has failures: true
-    # Warning: /Stage[main]/Main/Node[puppetdemo]/File[/var/www/cat-pictures/img/img_004.jpg]: Skipping because of failed dependencies
-    # Notice: /Stage[main]/Main/Node[puppetdemo]/File[/var/www/cat-pictures/img/img_001.jpg]: Dependency File[/var/www/cat-pictures/img] has failures: true
-    # Warning: /Stage[main]/Main/Node[puppetdemo]/File[/var/www/cat-pictures/img/img_001.jpg]: Skipping because of failed dependencies
-    # Notice: /Stage[main]/Main/Node[puppetdemo]/File[/var/www/cat-pictures/img/img_003.jpg]: Dependency File[/var/www/cat-pictures/img] has failures: true
-    # Warning: /Stage[main]/Main/Node[puppetdemo]/File[/var/www/cat-pictures/img/img_003.jpg]: Skipping because of failed dependencies
+2015-02-18 16:08 -> added / at the end of the line of modules/ssh/files/init.pp of source line
 
-# 2015-02-18 16:08 -> added / at the end of the line of modules/ssh/files/init.pp of source line
+2015-02-19 09:34 -> backtracking through book to determine why the classes cannot be found, files are showing up as directories and puppet apply cannot complete without errors.
 
-# 2015-02-19 09:34 -> backtracking through book to determine why the classes cannot be found, files are showing up as directories and puppet apply cannot complete without errors.
+2015-02-19 09:42 - > Needed to alter the /etc/ssh/ssh_config file and comment out the following lines to get git push to work.
+# #PermitRootLogin no
+# #AllowUsers timm git art
+# #UsePAM yes
 
-# 2015-02-19 09:42 - > Needed to alter the /etc/ssh/ssh_config file and comment out the following lines to get git push to work.
-  # #PermitRootLogin no
-  # #AllowUsers timm git art
-  # #UsePAM yes
+2015-02-19 09:58 -> in the 'manifests/nodes.pp' file, I uncommented the following code
+# package { 'nginx':
+# ensure => installed,
+# }
+# 
+# and commented out 'include nginx', thus not receiving the class nginx cannot be found error message
 
-# 2015-02-19 
+2015-02-19 10:03 removed the following lines from manifests.pp
+# PAGE 74
+#  ensure      => absent,
+#  }
+#
+# PAGE 65 - Yet another refactoring demonstration
+#  include nginx
+#  }
+#
+# PAGE 30
+#  file { '/tmp/hello':
+#    content => "Hello, world\n",
+#  }
+#
+# PAGE 88
+#  exec { 'Run my arbitrary command':
+#    command => '/bin/echo I ran this command on `/bin/date` >/tmp/command.output.txt',
+#  }
+#
+# PAGE 38
+#  include nginx
+
+2015-02-19 10:10 -> the current iteration of manifests/nodes.pp does not provide any errors. The current code is as follows:
+#
+# This file is managed by Puppet. Any manual changes will be lost.
+# This line added 2015-02-17 13:59
+
+# nodes.pp file
+
+node 'puppetDemo' {
+
+# PAGE 34
+  package { 'nginx':
+    ensure => installed,
+  }
+
+# PAGE 95
+#  file { '/var/www/cat-pictures':
+#    ensure => directory,
+#  }
+
+#  file { '/var/www/cat-pictures/img':
+#    source => 'puppet:///modules/cat-pictures/img',
+#    recurse => true,
+#    require => File['/var/www/cat-pictures'],
+#  }
+
+# PAGE 94 - CHAPTER 6 EXERCISE
+  cron { 'run pull-updates from Git':
+    command => '/usr/bin/rsync -az /usr/local/bin/pull-updates',
+    hour    => '*',
+    minute  => '5',
+  }
+
+# PAGE 92 Scheduling a backup
+# cron { 'Back up cat-pictures':
+#  command => '/usr/bin/rsync -az /var/www/cat-pictures/ /cat-pictures-backup/',
+#  hour    => '04',
+#  minute  => '00',
+# }
+
+# PAGE 82 - step 6
+#  include sudoers
+
+# PAGE 80 - step 4
+#  include ssh
+
+# PAGE 73
+#  user { 'art':
+#    ensure => present,
+#    comment => 'Art Vandalay',
+#    home => '/home/art',
+#    managehome => true,
+#  }
+
+# PAGE 77
+#  ssh_authorized_key { 'art_ssh':
+#    user => 'art',
+#    type => 'rsa',
+#    key => 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDFBoLkAAkVcTsIOZnIYaS7NKzQebiqGLuGG9hZyYLd8ZZF6tPWCHatGqoLjhC/W0MaO/BGA4lPWQxZK4ifz+4+eoPZkX3xyVj1GIxyrxrdkIeI2qkw7QHupfjIogz7jFHpmWZT9HJU4Irqbt9SRRKl3/mD2Rp1kl06oRhjP4nTENP8RucgD33ymaPMY+pdUSyIA7igv8nKO+j0JOEmqJPldqC83ax0rVtaWqa9oO1qvpOA67x6grWFObnIF4WyqN/C+RBqzh4pJHzO7h1Cgt2FijKxEgAcafvj+mBE7plCLazsyWJ+ic+vrwwhniczn4tYScjFTLzUVqNzOfPra0S7'
+#  }
+
+# PAGE 73
+
+#  user { 'testProfile':
+#    ensure => present,
+#    comment => 'test profile',
+#    home => '/home/test',
+#    managehome => true,
+#  }
+
+# PAGE 77
+#  ssh_authorized_key { 'testProfile_ssh':
+#    user => 'testProfile',
+#    type => 'rsa',
+#    key => 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDFBoLkAAkVcTsIOZnIYaS7NKzQebiqGLuGG9hZyYLd8ZZF6tPWCHatGqoLjhC/W0MaO/BGA4lPWQxZK4ifz+4+eoPZkX3xyVj1GIxyrxrdkIeI2qkw7QHupfjIogz7jFHpmWZT9HJU4Irqbt9SRRKl3/mD2Rp1kl06oRhjP4nTENP8RucgD33ymaPMY+pdUSyIA7igv8nKO+j0JOEmqJPldqC83ax0rVtaWqa9oO1qvpOA67x6grWFObnIF4WyqN/C+RBqzh4pJHzO7h1Cgt2FijKxEgAcafvj+mBE7plCLazsyWJ+ic+vrwwhniczn4tYScjFTLzUVqNzOfPra0S7'
+#  }
+
+}
+
+2015-02-19 
+
+ 
 
 
