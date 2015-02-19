@@ -183,8 +183,7 @@ Warning: Setting templatedir is deprecated. See http://links.puppetlabs.com/env-
 Notice: Compiled catalog for puppetdemo.belkin in environment production in 0.38 seconds
 Notice: Finished catalog run in 0.20 seconds
 
-2015-02-19 11:19 -> Added the puppet module from the Safari cookbook (PDF of page is in the modules/puppet/files folder) to see if there is any difference in one book from the other. I also changed the old papply (/usr/local/bin/papply) to papply-OLD (same location)
-
+2015-02-19 12:19 -> Added the puppet module from the Safari cookbook (PDF of page is in the modules/puppet/files folder) to see if there is any difference in one book from the other. I also changed the old papply (/usr/local/bin/papply) to papply-OLD (same location)
 
 
  
