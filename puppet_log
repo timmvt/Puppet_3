@@ -168,6 +168,9 @@ node 'puppetDemo' {
 
 }
 
+2015-02-19 10:27 -> The 'puppet apply <file>' command does not work properly unless the module path is specified. In this instance, the command is as follows:
+# puppet apply <file> --modulepath=/home/timm/Documents/puppet_3/modules
+
 2015-02-19 
 
  
