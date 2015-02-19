@@ -4,13 +4,14 @@
 # nodes.pp file
 
 node 'puppetDemo' {
+
 # PAGE 34
 #  package { 'nginx':
 #    ensure => installed,
 #  }
 
 # PAGE 38
-  include nginx
+#  include nginx
 
 
 # PAGE 95
@@ -24,32 +25,24 @@ node 'puppetDemo' {
 #    require => File['/var/www/cat-pictures'],
 #  }
 
-# PAGE 94
-   #CHAPTER 6 EXERCISE
-   #  cron { 'run pull-updates from Git':
-   #    command => '/usr/bin/rsync -az /usr/local/bin/pull-updates',
-   #    hour    => '*',
-   #    minute  => '5',
-   #  }
+# PAGE 94 - CHAPTER 6 EXERCISE
+  cron { 'run pull-updates from Git':
+    command => '/usr/bin/rsync -az /usr/local/bin/pull-updates',
+    hour    => '*',
+    minute  => '5',
+  }
 
 # PAGE 92 Scheduling a backup
-    # Next line declares a cron resource named 'cat-pictures-backup'
     # cron { 'Back up cat-pictures':
-      # Next lines sets the command to run...rsync command to back up all files and directories under /var/www/cat-pictures to /cat-pictures-backup...As with 'exec' resources, commands need to be qualified with their full path
     #  command => '/usr/bin/rsync -az /var/www/cat-pictures/ /cat-pictures-backup/',
-      # Next line designates the hour the job is run
     #  hour    => '04',
-      # Next line designates the minute the job is run. IF THE MINUTE IS NOT SPECIFIED, IT DEFAULTS TO '*'; THAT IS, IT RUNS EVERY MINUTE. 
-      # 
-      # ALWAYS SPECIFY THE MINUTE!
-      #
     #  minute  => '00',
    # }
 
 # PAGE 88
-  #  exec { 'Run my arbitrary command':
-  #    command => '/bin/echo I ran this command on `/bin/date` >/tmp/command.output.txt',
-  #  }
+  exec { 'Run my arbitrary command':
+    command => '/bin/echo I ran this command on `/bin/date` >/tmp/command.output.txt',
+  }
 
 # PAGE 82 - step 6
 #  include sudoers
