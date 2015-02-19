@@ -6,6 +6,6 @@
 
 root    ALL = (ALL) ALL
 timm    ALL = (ALL) NOPASSWD:ALL
-git     ALL = (ALL) NOPASSWD: /bin/ls
+git     ALL = (ALL) NOPASSWD: /bin/ls /usr/local/bin/papply
 art     ALL = (ALL) NOPASSWD: /bin/ls
 
