@@ -45,7 +45,7 @@ node 'puppetDemo' {
   include sudoers
 
 # PAGE 80 - step 4
-#  include ssh
+  include ssh
 
 # PAGE 73
 #  user { 'art':
