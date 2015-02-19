@@ -56,4 +56,11 @@
 
 # 2015-02-19 09:34 -> backtracking through book to determine why the classes cannot be found, files are showing up as directories and puppet apply cannot complete without errors.
 
+# 2015-02-19 09:42 - > Needed to alter the /etc/ssh/ssh_config file and comment out the following lines to get git push to work.
+  # #PermitRootLogin no
+  # #AllowUsers timm git art
+  # #UsePAM yes
+
+# 2015-02-19 
+
 
