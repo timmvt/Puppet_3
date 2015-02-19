@@ -12,6 +12,7 @@ node 'puppetDemo' {
 # PAGE 38
   include nginx
 
+
 # PAGE 95
 #  file { '/var/www/cat-pictures':
 #    ensure => directory,
@@ -51,10 +52,13 @@ node 'puppetDemo' {
   #  }
 
 # PAGE 82 - step 6
-  include sudoers
+#  include sudoers
+
 
 # PAGE 80 - step 4
-#  include ssh
+  include ssh
+
+
 
 # PAGE 73
   user { 'art':
