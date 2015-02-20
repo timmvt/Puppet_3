@@ -178,10 +178,9 @@ from:
 #
 #Received the following messages:
 #
-Warning: Setting templatedir is deprecated. See http://links.puppetlabs.com/env-settings-deprecations
-   (at /usr/lib/ruby/vendor_ruby/puppet/settings.rb:1139:in `issue_deprecation_warning')
-Notice: Compiled catalog for puppetdemo.belkin in environment production in 0.38 seconds
-Notice: Finished catalog run in 0.20 seconds
+# Warning: Setting templatedir is deprecated. See http://links.puppetlabs.com/env-settings-deprecations (at /usr/lib/ruby/vendor_ruby/puppet/settings.rb:1139:in `issue_deprecation_warning')
+# Notice: Compiled catalog for puppetdemo.belkin in environment production in 0.38 seconds
+# Notice: Finished catalog run in 0.20 seconds
 
 2015-02-19 12:19 -> Added the puppet module from the Safari cookbook (PDF of page is in the modules/puppet/files folder) to see if there is any difference in one book from the other. I also changed the old papply (/usr/local/bin/papply) to papply-OLD (same location)
 
@@ -192,5 +191,7 @@ Notice: Finished catalog run in 0.20 seconds
 # Error: Could not find class puppet for puppetdemo.belkin on node puppetdemo.belkin
 # Error: Could not find class puppet for puppetdemo.belkin on node puppetdemo.belkin
  
+** attempted adding the node definitions on site.pp and not touching the nodes.pp file. Node definitions, per Puppet Labs, should go in the site.pp file.
+
 
 
