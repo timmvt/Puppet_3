@@ -201,6 +201,31 @@ from:
     
            11:52 -> Ultimately determined that the automatic change of the papply script is caused by Puppet code. Instead of tearing into the puppet code to see what exactly is causing it, I chose to rename the 'modules' folder to 'module' which allows 'papply' to work without throwing errors every run.
 
+2015-02-20 14:24 -> created template on nginx (module/nginx/templates/vhost.conf.erb). The code is as follows:
+      # server {
+      #   listen 80;
+      #   root /var/www/<%= site_name %>;
+      #   server_name <%= site_domain %>;
+      #   }
+
+           14:31 -> ran papply with no errors
+
+           14:43 -> create a template to generate the Nginx virtual host file. Added to manifests/site.pp. Code follows:
+      # file { '/etc/nginx/sites-enabled/cat-pictures.conf':
+      #   content => template('nginx/vhost.conf.erg'),
+      #   notify  => Service['nginx'],
+      # }
+
+           14:57 -> Added the following code. Added to manifests/site.pp (commenting out the cat-pictures section):
+      #  $site_name = 'dog-pictures' # Page 100
+      #  $site_domain = 'dog-pictures.com'
+      #  file { '/etc/nginx/sites-enabled/dog-pictures.conf':
+      #    content => template('nginx/vhost.conf.erb'),
+      #    notify  => Service['nginx'],
+      #  }
+
+           15:20 -> Added the following code to ma
+#  content => inline_template("My ipaddress is <%= @ipaddress %>. \n")
 
     
 
