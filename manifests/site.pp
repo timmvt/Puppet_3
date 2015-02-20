@@ -18,6 +18,14 @@ node 'puppetDemo' {
     content => template('nginx/vhost.conf.erb'),
     notify  => Service['nginx'],
   }
+#  $site_name = 'dog-pictures' # Page 100
+#  $site_domain = 'dog-pictures.com'
+#  file { '/etc/nginx/sites-enabled/dog-pictures.conf':
+#    content => template('nginx/vhost.conf.erb'),
+#    notify  => Service['nginx'],
+#  }
+
+#  content => inline_template("My ipaddress is <%= @ipaddress %>. \n")
 
 #  include sudoers     # Page 82 - step 6
 #  include ssh         # Page 80 - step 4
