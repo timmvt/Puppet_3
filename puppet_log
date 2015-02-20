@@ -193,5 +193,5 @@ from:
  
 ** attempted adding the node definitions on site.pp and not touching the nodes.pp file. Node definitions, per Puppet Labs, should go in the site.pp file.
 
-
+2015-02-20 09:33 -> switching the nodes.pp to site.pp has helped the output of the PAPPLY command. The command is still throwing errors but I have removed the use of 'import' as it will be going away in Puppet 4. Still working on the class error though.
 
