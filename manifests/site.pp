@@ -13,7 +13,7 @@ node 'puppetDemo' {
   include puppet      # From Puppet 3 Cookbook 
   include nginx       # Page 38
   include sudoers     # Page 82 - step 6
-  include ssh         # Page 80 - step 4
+#  include ssh         # Page 80 - step 4
 
 # PAGE 34
 #  package { 'nginx':
