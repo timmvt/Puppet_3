@@ -1,0 +1,5 @@
+#!/bin/sh
+PUPPETDIR=/home/timm/Documents/puppet_3
+cd ${PUPPETDIR}
+git pull && sudo /usr/local/bin/papply
+
