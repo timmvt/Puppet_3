@@ -13,19 +13,18 @@ node 'puppetDemo' {
 #    ensure => installed,
 #  }
 
-# PAGE 38
-  include nginx
+  include nginx		# Page 38
 
-# PAGE 95
-#  file { '/var/www/cat-pictures':
+#  file { '/var/www/cat-pictures':	# Page 95
 #    ensure => directory,
 #  }
 
-#  file { '/var/www/cat-pictures/img':
-#    source => 'puppet:///modules/cat-pictures/img',
-#    recurse => true,
-#    require => File['/var/www/cat-pictures'],
-#  }
+  $site_name = 'cat-pictures'
+  $site_domain = 'cat-pictures.com'  
+  file { '/etc/nginx/sites-enabled/cat-pictures.conf':
+    content => template('nginx/vhost.conf.erb'),
+    notify  => Service['nginx'],
+  }
 
 # PAGE 94 - CHAPTER 6 EXERCISE
   cron { 'run pull-updates from Git':
@@ -42,10 +41,10 @@ node 'puppetDemo' {
 # }
 
 # PAGE 82 - step 6
-  include sudoers
+#  include sudoers
 
 # PAGE 80 - step 4
-  include ssh
+#  include ssh
 
 # PAGE 73
 #  user { 'art':
@@ -56,11 +55,11 @@ node 'puppetDemo' {
 #  }
 
 # PAGE 77
-  ssh_authorized_key { 'art_ssh':
-    user => 'art',
-    type => 'rsa',
-    key => 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDFBoLkAAkVcTsIOZnIYaS7NKzQebiqGLuGG9hZyYLd8ZZF6tPWCHatGqoLjhC/W0MaO/BGA4lPWQxZK4ifz+4+eoPZkX3xyVj1GIxyrxrdkIeI2qkw7QHupfjIogz7jFHpmWZT9HJU4Irqbt9SRRKl3/mD2Rp1kl06oRhjP4nTENP8RucgD33ymaPMY+pdUSyIA7igv8nKO+j0JOEmqJPldqC83ax0rVtaWqa9oO1qvpOA67x6grWFObnIF4WyqN/C+RBqzh4pJHzO7h1Cgt2FijKxEgAcafvj+mBE7plCLazsyWJ+ic+vrwwhniczn4tYScjFTLzUVqNzOfPra0S7'
-  }
+#  ssh_authorized_key { 'art_ssh':
+#    user => 'art',
+#    type => 'rsa',
+#    key => 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDFBoLkAAkVcTsIOZnIYaS7NKzQebiqGLuGG9hZyYLd8ZZF6tPWCHatGqoLjhC/W0MaO/BGA4lPWQxZK4ifz+4+eoPZkX3xyVj1GIxyrxrdkIeI2qkw7QHupfjIogz7jFHpmWZT9HJU4Irqbt9SRRKl3/mD2Rp1kl06oRhjP4nTENP8RucgD33ymaPMY+pdUSyIA7igv8nKO+j0JOEmqJPldqC83ax0rVtaWqa9oO1qvpOA67x6grWFObnIF4WyqN/C+RBqzh4pJHzO7h1Cgt2FijKxEgAcafvj+mBE7plCLazsyWJ+ic+vrwwhniczn4tYScjFTLzUVqNzOfPra0S7'
+#  }
 
 # PAGE 73
 #  user { 'testProfile':
