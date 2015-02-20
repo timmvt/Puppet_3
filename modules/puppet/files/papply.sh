@@ -1,7 +1,0 @@
-# Created from Safari book: Puppet 3 Cookbook chapter 1 section 6
-
-# PDF of page included in modules/puppet/files
-
-#!/bin/sh
-sudo puppet apply /home/timm/Documents/puppet_3/manifests/site.pp --modulepath=/home/timm/Documents/puppet_3/module $*
-
