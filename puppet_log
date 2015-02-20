@@ -212,8 +212,21 @@
      	#    notify  => Service['nginx'],
      	#  }
 
-           15:20 -> Added the following code to ma
+           15:20 -> Added the following code to manifests/site.pp
 	#  content => inline_template("My ipaddress is <%= @ipaddress %>. \n")
+           
+           15:22 -> The above code does not work and causes an error. Moving to template file ('nginx/vhost.conf.erb')
+ 
+           15:40 -> tried to run the command 'curl localhost'. Connection is now refused. 
+	   15:50 -> Ran 'sudo nginx -t' to troubleshoot. Error message is below:
+	#nginx: [emerg] invalid number of arguments in "root" directive in /etc/nginx/sites-enabled/dog-pictures.conf:3
+	#nginx: configuration file /etc/nginx/nginx.conf test failed
+	   
+           I have checked the vhosts file and there are no spelling or grammar errors. Nor are there any problems with running 'papply'. Continuing to troubleshoot.
+
+	   16:58 -> No solution as of yet.
+
+
 
     
 
