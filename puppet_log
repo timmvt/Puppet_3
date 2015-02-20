@@ -195,3 +195,4 @@ from:
 
 2015-02-20 09:33 -> switching the nodes.pp to site.pp has helped the output of the PAPPLY command. The command is still throwing errors but I have removed the use of 'import' as it will be going away in Puppet 4. Still working on the class error though.
 
+2015-02-20 10:52 -> fixed the file /usr/local/bin/papply by changing module to modules. Papply now works. There is an error thrown, which is that the sudoers file cannot be read. May be a permissions change?
