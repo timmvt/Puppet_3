@@ -1,0 +1,6 @@
+#2015-02-26 10:37 -> Working on resizing Fedora VirtualBox. Ran out of virtual memory when running yum install commands.
+
+	    11:08 -> Ran on command line: VBoxManage modifyhd /home/timm/VirtualBox\ VMs/Fedora-WORKSTATION/Fedora-WORKSTATION.vdi --resize 64000
+		     The path must be the absolute path to the virtual drive needing to be resized. I chose 64GB but can up it if need be.
+
+
