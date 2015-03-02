@@ -9,7 +9,7 @@
 # from the nodes.pp file
 
 node 'puppetDemo' {
-  include puppet      # From Puppet 3 Cookbook 
+#  include puppet      # From Puppet 3 Cookbook 
 
   include nginx       # Page 38
   $site_name = 'cat-pictures' # Page 98
@@ -20,7 +20,7 @@ node 'puppetDemo' {
   }
 
 
-#  include sudoers     # Page 82 - step 6
+  include sudoers     # Page 82 - step 6
 #  include ssh         # Page 80 - step 4
 
 #  package { 'nginx': # PAGE 34
@@ -62,9 +62,9 @@ node 'puppetDemo' {
 #    key => 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDFBoLkAAkVcTsIOZnIYaS7NKzQebiqGLuGG9hZyYLd8ZZF6tPWCHatGqoLjhC/W0MaO/BGA4lPWQxZK4ifz+4+eoPZkX3xyVj1GIxyrxrdkIeI2qkw7QHupfjIogz7jFHpmWZT9HJU4Irqbt9SRRKl3/mD2Rp1kl06oRhjP4nTENP8RucgD33ymaPMY+pdUSyIA7igv8nKO+j0JOEmqJPldqC83ax0rVtaWqa9oO1qvpOA67x6grWFObnIF4WyqN/C+RBqzh4pJHzO7h1Cgt2FijKxEgAcafvj+mBE7plCLazsyWJ+ic+vrwwhniczn4tYScjFTLzUVqNzOfPra0S7'
 #  }
 
-  exec { 'Run my arbitrary command':
-    command => '/bin/echo I ran this command on `/bin/date` >/tmp/command.output.txt',
-  }
+#  exec { 'Run my arbitrary command':
+#    command => '/bin/echo I ran this command on `/bin/date` >/tmp/command.output.txt',
+#  }
 
 }
 

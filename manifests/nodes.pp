@@ -6,14 +6,14 @@
 node 'puppetDemo' {
 
 # From Puppet 3 Cookbook 
-  include puppet
+#  include puppet
 
 # PAGE 34
 #  package { 'nginx':
 #    ensure => installed,
 #  }
 
-  include nginx		# Page 38
+#  include nginx		# Page 38
 
 #  file { '/var/www/cat-pictures':	# Page 95
 #    ensure => directory,

@@ -228,6 +228,7 @@
 
 2015-02-23 07:30 -> WORKING ON CENTOS VM TODAY (follow work in the centos_work folder).
 
+2015-03-02 09:08 -> Continuing with Puppet 3 - Chapter 6: Tasks and Templates
     
 
 
