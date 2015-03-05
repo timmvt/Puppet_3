@@ -11,7 +11,17 @@
 node 'puppetDemo' {
 #  include puppet      # From Puppet 3 Cookbook 
 
+  file { '/tmp/test':
+    content => 'Zaphod Beeblebrox, this is a very large drink!',
+  }
+
+  notify { 'Got this far!' :}
+
   include nginx       # Page 38
+
+  notify { 'Got this far 02!' :}
+
+
   $site_name = 'cat-pictures' # Page 98
   $site_domain = 'cat-pictures.com'
   file { '/etc/nginx/sites-enabled/cat-pictures.conf':
@@ -19,10 +29,14 @@ node 'puppetDemo' {
     notify  => Service['nginx'],
   }
 
+  notify { 'Got this far 03!' :}
+
+
   class { 'ntp':
     server => 'us.pool.ntp.org',
   }
 
+  notify { 'Got this far 04!' :}
 
 #  nginx::website { 'adorable-animals':
 #    site_domain => 'adorable-animals.com',
@@ -51,12 +65,16 @@ node 'puppetDemo' {
     ensure => directory,
   }
 
+  notify { 'Got this far 05!' :}
+
+
   file { '/var/www/cat-pictures/img':
     source => 'puppet:///modules/cat-pictures/img',
     recurse => true,
     require => File['/var/www/cat-pictures'],
   }
 
+  notify { 'Got this far 06!' :}
 
 #  user { 'art': # PAGE 73
 #    ensure => present,
