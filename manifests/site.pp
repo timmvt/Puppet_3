@@ -19,6 +19,9 @@ node 'puppetDemo' {
     notify  => Service['nginx'],
   }
 
+  nginx::website { 'adorable-animals':
+    site_domain => 'adorable-animals.com',
+  }
 
 #  include sudoers     # Page 82 - step 6
 #  include ssh         # Page 80 - step 4
