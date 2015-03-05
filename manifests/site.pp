@@ -20,24 +20,24 @@ node 'puppetDemo' {
   }
 
 
-  include sudoers     # Page 82 - step 6
+#  include sudoers     # Page 82 - step 6
 #  include ssh         # Page 80 - step 4
 
 #  package { 'nginx': # PAGE 34
 #    ensure => installed,
 #  }
 
-  cron { 'run pull-updates from Git': # PAGE 94 - CHAPTER 6 EXERCISE
-    command => '/usr/bin/rsync -az /usr/local/bin/pull-updates',
-    hour    => '*',
-    minute  => '5',
-  }
+#  cron { 'run pull-updates from Git': # PAGE 94 - CHAPTER 6 EXERCISE
+#    command => '/usr/bin/rsync -az /usr/local/bin/pull-updates',
+#    hour    => '*',
+#    minute  => '5',
+#  }
 
-  cron { 'Back up cat-pictures': # PAGE 92 Scheduling a backup
-    command => '/usr/bin/rsync -az /var/www/cat-pictures/ /cat-pictures-backup/',
-    hour    => '04',
-    minute  => '00',
-  }
+#  cron { 'Back up cat-pictures': # PAGE 92 Scheduling a backup
+#    command => '/usr/bin/rsync -az /var/www/cat-pictures/ /cat-pictures-backup/',
+#    hour    => '04',
+#    minute  => '00',
+#  }
 
   file { '/var/www/cat-pictures': # PAGE 95
     ensure => directory,
